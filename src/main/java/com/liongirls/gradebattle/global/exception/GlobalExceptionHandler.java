@@ -58,7 +58,7 @@ public class GlobalExceptionHandler {
     ) {
         GlobalErrorCode errorCode = GlobalErrorCode.BAD_REQUEST;
 
-        log.warn("Unreadable request body: {}", e.getMessage());
+        log.warn("Unreadable request body");
 
         return ResponseEntity
                 .status(errorCode.getStatus())
@@ -77,9 +77,8 @@ public class GlobalExceptionHandler {
         GlobalErrorCode errorCode = GlobalErrorCode.BAD_REQUEST;
 
         log.warn(
-                "Type mismatch. parameter: {}, value: {}, requiredType: {}",
+                "Type mismatch. parameter: {}, requiredType: {}",
                 e.getName(),
-                e.getValue(),
                 e.getRequiredType()
         );
 
@@ -119,7 +118,7 @@ public class GlobalExceptionHandler {
     // 그 외 에러 처리
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleAllException(Exception e) {
-        log.error("Unhandled Exception: ", e);
+        log.error("Unhandled exception type: {}", e.getClass().getSimpleName());
 
         GlobalErrorCode errorCode = GlobalErrorCode.INTERNAL_SERVER_ERROR;
 

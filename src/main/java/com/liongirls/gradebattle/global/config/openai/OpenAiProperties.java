@@ -7,4 +7,8 @@ public record OpenAiProperties(
         String apiKey,
         String model
 ) {
+    @Override
+    public String toString() {
+        return "OpenAiProperties[apiKey=REDACTED, model=" + model + "]";
+    }
 }
