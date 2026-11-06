@@ -26,6 +26,7 @@ public class OpenAiConfig {
     public RestClient openAiRestClient() {
         HttpClient httpClient = HttpClient.newBuilder()
                 .connectTimeout(CONNECT_TIMEOUT)
+                .followRedirects(HttpClient.Redirect.NEVER)
                 .build();
 
         JdkClientHttpRequestFactory requestFactory =

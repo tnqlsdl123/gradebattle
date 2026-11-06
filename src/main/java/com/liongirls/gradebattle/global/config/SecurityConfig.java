@@ -55,6 +55,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .securityContext(context -> context.securityContextRepository(repository))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/angel.html", "/angel.js").permitAll()
                         .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/users/csrf").permitAll()
                         .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/users/signup", "/api/users/login").permitAll()
                         .anyRequest().authenticated())

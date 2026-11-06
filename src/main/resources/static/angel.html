@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'">
+  <title>대천사 학습 조언</title>
+  <script src="/angel.js" defer></script>
+</head>
+<body>
+<main>
+  <h1>대천사에게 도움받기</h1>
+  <p>현재 점수를 바탕으로 문제점과 다음 학습 방법을 함께 찾아봅니다.</p>
+  <section id="login-panel">
+    <h2>로그인</h2>
+    <p>가입한 계정으로 로그인해 주세요.</p>
+    <form id="login-form">
+      <label>아이디 <input name="loginId" autocomplete="username" required maxlength="50"></label>
+      <label>비밀번호 <input name="password" type="password" autocomplete="current-password" required maxlength="72"></label>
+      <button type="submit">로그인</button>
+    </form>
+  </section>
+  <section id="analysis-panel" hidden>
+    <button id="logout" type="button">로그아웃</button>
+    <h2>본인의 성적 입력</h2>
+    <p>각 항목은 100점 만점입니다. 미확정·미응시 항목은 비워 두고, 확정된 0점은 0을 입력하세요.</p>
+    <p>배점: 출석 20% · 과제 20% · 중간 30% · 기말 30%. 입력은 세션 만료 또는 로그아웃 시 제거됩니다.</p>
+    <form id="analysis-form">
+      <p><label>과목명 <input name="courseName" required maxlength="100" autocomplete="off"></label></p>
+      <p><label>이수학점 <input name="credits" type="number" min="0.5" max="30" step="0.5" autocomplete="off"></label></p>
+      <p><label>출석 점수 <input name="attendanceScore" type="number" min="0" max="100" step="0.01" autocomplete="off"></label></p>
+      <p><label>과제 점수 <input name="assignmentScore" type="number" min="0" max="100" step="0.01" autocomplete="off"></label></p>
+      <p><label>중간 점수 <input name="midtermScore" type="number" min="0" max="100" step="0.01" autocomplete="off"></label></p>
+      <p><label>기말 점수 <input name="finalScore" type="number" min="0" max="100" step="0.01" autocomplete="off"></label></p>
+      <p><label>목표 점수 <input name="targetScore" type="number" min="0" max="100" step="0.01" placeholder="기본 60점" autocomplete="off"></label></p>
+      <fieldset>
+        <legend>AI 분석 전 동의</legend>
+        <p id="notice">전송 안내를 불러오는 중입니다.</p>
+        <label><input id="consent" type="checkbox" disabled>안내를 확인했고, 본인의 성적임을 확인하며 이번 분석의 외부 전송에 동의합니다.</label>
+      </fieldset>
+      <p><button id="analyze" type="submit" disabled>대천사에게 분석받기</button></p>
+    </form>
+    <section id="result" hidden aria-live="polite">
+      <h2>대천사의 조언</h2>
+      <p id="score"></p>
+      <p id="problem"></p>
+      <ul id="actions"></ul>
+      <p id="encouragement"></p>
+    </section>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>

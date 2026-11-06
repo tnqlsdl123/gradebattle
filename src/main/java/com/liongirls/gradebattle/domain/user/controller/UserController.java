@@ -6,7 +6,6 @@ import com.liongirls.gradebattle.domain.user.dto.UpdateNicknameRequest;
 import com.liongirls.gradebattle.domain.user.dto.UserResponse;
 import com.liongirls.gradebattle.global.exception.GeneralException;
 import com.liongirls.gradebattle.global.response.ApiResponse;
-import com.liongirls.gradebattle.user.dto.*;
 import com.liongirls.gradebattle.domain.user.exception.UserErrorCode;
 import com.liongirls.gradebattle.domain.user.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
